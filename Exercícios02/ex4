@@ -1,0 +1,25 @@
+/*
+
+Exercício 4: construir um programa em Java que leia um número inteiro e imprima “PAR”, se o número for par e imprima “ÍMPAR”, se o número for ímpar.
+  
+*/
+
+import java.util.Scanner;
+
+public class Main {
+  public static void main(String[] args) {
+    Scanner scanner = new Scanner(System.in);
+
+    int n;
+
+    System.out.print("Insira um numero inteiro: ");
+    n = scanner.nextInt();
+    scanner.close();
+
+    if (n % 2 == 0) {
+      System.out.println("PAR");
+    } else {
+      System.out.println("IMPAR");
+    }
+  }
+}
