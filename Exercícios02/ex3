@@ -1,0 +1,28 @@
+/*
+
+Exercício 3: construir um programa em Java que leia 2 números inteiros e imprima o maior número lido.
+  
+*/
+
+import java.util.Scanner;
+
+public class Main {
+  public static void main(String[] args) {
+    Scanner scanner = new Scanner(System.in);
+
+    int num1, num2;
+
+    System.out.print("Insira dois numeros inteiros: ");
+    num1 = scanner.nextInt();
+    num2 = scanner.nextInt();
+    scanner.close();
+
+    if (num1 == num2) {
+      System.out.println("Os numeros sao iguais");
+    } else if (num1 > num2) {
+      System.out.println(num1 + " eh o maior numero");
+    } else {
+      System.out.println(num2 + " eh o maior numero");
+    }
+  }
+}
