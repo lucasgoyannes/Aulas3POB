@@ -1,0 +1,39 @@
+/*
+
+Exercício 6: construir um programa em Java que leia o salário bruto e o sexo de um funcionário.
+Se o sexo for “M” (masculino), calcular, armazenar e imprimir um desconto de 5% e o salário líquido, caso contrário, calcular, armazenar e imprimir 
+um desconto de 3% e o salário líquido.
+  
+*/
+
+import java.util.Scanner;
+
+public class Main {
+  public static void main(String[] args) {
+    Scanner scanner = new Scanner(System.in);
+
+    double n, desconto;
+    char s;
+
+    System.out.print("Insira o seu salário bruto: ");
+    n = scanner.nextDouble();
+
+    System.out.print("Insira o seu sexo (M / F): ");
+    s = scanner.next().charAt(0);
+    scanner.close();
+
+    if (s != 'M' && s != 'F') {
+      System.out.println("Sexo invalido!");
+      return;
+    } else if (s == 'M') {
+      desconto = n * 0.05;
+    } else {
+      desconto = n * 0.03;
+    }
+
+    double salarioLiquido = n - desconto;
+
+    System.out.println(String.format("\n" + "Desconto: R$ %.2f", desconto));
+    System.out.println(String.format("Salario liquido: R$ %.2f", salarioLiquido));
+  }
+}
