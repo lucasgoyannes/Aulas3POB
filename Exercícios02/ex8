@@ -1,0 +1,29 @@
+/*
+
+Exercício 8: construir um programa em Java que leia a quantidade de disciplinas em que um aluno não alcançou a média. 
+Se a quantidade for igual a 0, imprimir “Aprovado”, se a quantidade for menor ou igual a 5, imprimir “Recuperação” e 
+se a quantidade for maior que 5, imprimir “Reprovado”.
+  
+*/
+
+import java.util.Scanner;
+
+public class Main {
+  public static void main(String[] args) {
+    Scanner scanner = new Scanner(System.in);
+
+    int n;
+
+    System.out.print("Insira a quantidade de disciplinas que voce nao alcancou a media: ");
+    n = scanner.nextInt();
+    scanner.close();
+
+    if (n == 0) {
+      System.out.println("\n" + "Aprovado");
+    } else if (n <= 5) {
+      System.out.println("\n" + "Recuperação");
+    } else {
+      System.out.println("\n" + "Reprovado");
+    }
+  }
+}
