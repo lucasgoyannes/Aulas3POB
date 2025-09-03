@@ -1,0 +1,28 @@
+/*
+
+Exercício 7: construir um programa em Java que leia um número inteiro e imprima “Positivo”, se o número lido for maior que 0, imprima “Negativo”, se o número 
+lido for menor que 0 e imprima “Nulo”, se o número lido for igual a 0.
+  
+*/
+
+import java.util.Scanner;
+
+public class Main {
+  public static void main(String[] args) {
+    Scanner scanner = new Scanner(System.in);
+
+    int n;
+
+    System.out.print("Insira um numero inteiro: ");
+    n = scanner.nextInt();
+    scanner.close();
+
+    if (n == 0) {
+      System.out.println("\n" + "Nulo");
+    } else if (n > 0) {
+      System.out.println("\n" + "Positivo");
+    } else {
+      System.out.println("\n" + "Negativo");
+    }
+  }
+}
