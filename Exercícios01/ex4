@@ -1,0 +1,23 @@
+/*
+
+4. Cálculo de Média Simples
+Faça um programa que solicite ao usuário três notas (valores decimais) e exiba a média aritmética delas.
+  
+*/
+
+import java.util.Scanner;
+
+public class Main {
+  public static void main(String[] args) {
+    Scanner scanner = new Scanner(System.in);
+
+    double media;
+
+    System.out.print("Insira tres numeros: ");
+    media = ((scanner.nextDouble() + scanner.nextDouble() + scanner.nextDouble()) / 3);
+
+    System.out.printf("\nA media aritmetica desses numeros eh: %.2f ", media);
+
+    scanner.close();
+  }
+}
