@@ -1,0 +1,29 @@
+/*
+
+2. Área de um Círculo
+Desenvolva um programa que leia o raio de um círculo e calcule sua área.
+
+Fórmula: Área = π * raio²
+
+Considere π = 3.14159.
+  
+*/
+
+import java.util.Scanner;
+
+public class Main {
+  public static void main(String[] args) {
+    Scanner scanner = new Scanner(System.in);
+
+    double area, pi = 3.14159, raio;
+
+    System.out.print("Insira o raio de um circulo: ");
+    raio = scanner.nextDouble();
+
+    area = (raio * raio) * pi;
+
+    System.out.printf("\nA area desse circulo eh: %.2f ", area);
+
+    scanner.close();
+  }
+}
