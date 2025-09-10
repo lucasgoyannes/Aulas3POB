@@ -1,0 +1,32 @@
+/*
+
+Exercício 12: construir um programa em Java que leia os valores de A, B e C e que imprima “Não forma triângulo”, se um dos valores for maior que a soma dos outros 2, caso contrário, imprimir qual é o tipo do triângulo, que pode ser “Equilátero”, se tiver os 3 lados iguais, “Isósceles”, se tiver 2 lados iguais e “Escaleno”, se os 3 lados forem diferentes.
+
+*/
+
+import java.util.Scanner;
+
+public class Main {
+  public static void main(String[] args) {
+    Scanner scanner = new Scanner(System.in);
+
+    double a, b, c;
+
+    System.out.print("Insira tres valores: ");
+    a = scanner.nextDouble();
+    b = scanner.nextDouble();
+    c = scanner.nextDouble();
+
+    if (a > (b + c) || b > (a + c) || c > (a + b)) {
+      System.out.println("\nNao forma triângulo");
+    } else if (a == b && a == c) {
+      System.out.println("\nEquilatero");
+    } else if (a == b || a == c || b == c) {
+      System.out.println("\nIsosceles");
+    } else {
+      System.out.println("\nEscaleno");
+    }
+
+    scanner.close();
+  }
+}
