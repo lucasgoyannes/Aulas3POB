@@ -1,0 +1,30 @@
+/*
+
+10. Distância Entre Dois Pontos
+Desenvolva um programa que leia as coordenadas x1, y1 e x2, y2 de dois pontos no plano cartesiano e calcule a distância entre eles.
+
+Fórmula: D = sqrt((x2 - x1)² + (y2 - y1)²)
+
+*/
+
+import java.util.Scanner;
+
+public class Main {
+  public static void main(String[] args) {
+    Scanner scanner = new Scanner(System.in);
+
+    double rs, dol, cotacao;
+
+    System.out.print("Insira um valor em R$: ");
+    rs = scanner.nextDouble();
+
+    System.out.println("Insira a cotacao do dolar hoje: ");
+    cotacao = scanner.nextDouble();
+
+    dol = rs / cotacao;
+
+    System.out.printf("\n\nValor: $%.2f", dol);
+
+    scanner.close();
+  }
+}
