@@ -1,0 +1,27 @@
+/*
+
+3. Conversão de Temperatura
+Crie um programa que leia uma temperatura em graus Celsius e a converta para Fahrenheit.
+
+Fórmula: F = (C × 9/5) + 32.
+  
+*/
+
+import java.util.Scanner;
+
+public class Main {
+  public static void main(String[] args) {
+    Scanner scanner = new Scanner(System.in);
+
+    double f, c;
+
+    System.out.print("Insira uma temperatura em graus celsius: ");
+    c = scanner.nextDouble();
+
+    f = ((c * 9) / 5) + 32;
+
+    System.out.printf("\nEssa temperatura em fahrenheit eh: %.1f ", f);
+
+    scanner.close();
+  }
+}
