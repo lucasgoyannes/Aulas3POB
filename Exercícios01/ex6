@@ -1,0 +1,29 @@
+/*
+
+6. Cálculo do Salário
+Escreva um programa que receba o salário bruto de um funcionário e o valor de desconto do INSS. 
+O programa deve calcular e exibir o salário líquido.
+
+*/
+
+import java.util.Scanner;
+
+public class Main {
+  public static void main(String[] args) {
+    Scanner scanner = new Scanner(System.in);
+
+    double salario, liquido, desconto;
+
+    System.out.print("Insira o seu salario bruto: ");
+    salario = scanner.nextDouble();
+
+    System.out.print("Insira o desconto do INSS: ");
+    desconto = salario * 0.12 - scanner.nextDouble();
+
+    liquido = salario - desconto;
+
+    System.out.println("\nSeu salario liquido eh: " + liquido);
+
+    scanner.close();
+  }
+}
