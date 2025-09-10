@@ -1,0 +1,29 @@
+/*
+
+Exercício 11: construir um programa em Java que leia os valores de A, B e C e que imprima “Não forma triângulo”, se um dos 
+valores for maior que a soma dos outros 2, caso contrário, imprimir “Forma triângulo”.
+
+*/
+
+import java.util.Scanner;
+
+public class Main {
+  public static void main(String[] args) {
+    Scanner scanner = new Scanner(System.in);
+
+    double a, b, c;
+
+    System.out.print("Insira tres valores: ");
+    a = scanner.nextDouble();
+    b = scanner.nextDouble();
+    c = scanner.nextDouble();
+
+    if (a > (b + c) || b > (a + c) || c > (a + b)) {
+      System.out.println("\nNao forma triangulo");
+    } else {
+      System.out.println("\nForma triangulo");
+    }
+
+    scanner.close();
+  }
+}
