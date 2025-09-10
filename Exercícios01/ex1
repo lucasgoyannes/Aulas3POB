@@ -1,0 +1,26 @@
+/*
+
+1. Soma de Dois Números
+Escreva um programa que solicite ao usuário dois números inteiros e exiba a soma deles.
+  
+*/
+
+import java.util.Scanner;
+
+public class Main {
+  public static void main(String[] args) {
+    Scanner scanner = new Scanner(System.in);
+
+    int n1, n2, soma;
+
+    System.out.print("Insira dois numeros inteiros: ");
+    n1 = scanner.nextInt();
+    n2 = scanner.nextInt();
+
+    soma = n1 + n2;
+
+    System.out.println("\nA soma dos dois numeros eh: " + soma);
+
+    scanner.close();
+  }
+}
