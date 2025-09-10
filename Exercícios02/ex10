@@ -1,0 +1,32 @@
+/*
+
+Exercício 10: construir um programa em Java que leia o ano de nascimento e o sexo de uma pessoa e que calcule a sua idade 
+aproximada. Se o sexo for igual a “M” (masculino) e a idade for igual a 18, imprimir “Serviço Militar Obrigatório”, caso 
+contrário, imprimir “Isento de Serviço Militar”.
+
+*/
+
+import java.util.Scanner;
+
+public class Main {
+  public static void main(String[] args) {
+    Scanner scanner = new Scanner(System.in);
+
+    int idade, ano;
+    char sexo;
+
+    System.out.print("Insira a seu ano de nascimento e sexo (0000 M/F): ");
+    ano = scanner.nextInt();
+    sexo = scanner.next().charAt(0);
+
+    idade = 2025 - ano;
+
+    if (sexo == 'F' || idade < 18) {
+      System.out.println("\nIsento de Serviço Militar");
+    } else {
+      System.out.println("\nServiço Militar Obrigatório");
+    }
+
+    scanner.close();
+  }
+}
