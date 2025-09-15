@@ -1,0 +1,37 @@
+/*
+
+Exercício 2: Tabuada de um número
+
+Descrição:
+Escreva um programa que solicite um número ao usuário e exiba a tabuada
+desse número de 1 a 10, utilizando um loop while.
+
+Requisitos:
+• O programa deve pedir um número inteiro ao usuário.
+• Utilizar um contador para iterar de 1 a 10.
+• Exibir a multiplicação do número pelo contador em cada iteração.
+  
+*/
+
+import java.util.Scanner;
+
+public class Main {
+  public static void main(String[] args) {
+    Scanner scanner = new Scanner(System.in);
+
+    int n, i = 1;
+
+    System.out.print("Insira um numero N: ");
+    n = (scanner.nextInt());
+
+    System.out.println("\nTABUADA DE " + n + " (1 a 10)");
+
+    while (i <= 10) {
+      int tabuada = i * n;
+      System.out.println(i + " x " + n + " = " + tabuada);
+      i++;
+    }
+
+    scanner.close();
+  }
+}
