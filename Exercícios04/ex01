@@ -1,0 +1,43 @@
+/*
+
+Exercício 1: Maior e Menor Valor em um Array
+
+Descrição:
+Crie um programa que solicite ao usuário 5 números inteiros e armazene-os em um array. Após isso, o programa deve exibir o maior e o menor número do array.
+
+Requisitos:
+• Criar um array de tamanho 5.
+• Utilizar um loop for para percorrer o array e encontrar o maior e o menor
+valor.
+• Exibir o maior e o menor número armazenados no array.
+  
+*/
+
+import java.util.Scanner;
+
+public class Main {
+  public static void main(String[] args) {
+    Scanner scanner = new Scanner(System.in);
+
+    int maior = Integer.MIN_VALUE, menor = Integer.MAX_VALUE;
+    int[] vet = new int[5];
+
+    System.out.print("Insira 5 numeros inteiros: ");
+    for (int i = 0; i < 5; i++) {
+      vet[i] = scanner.nextInt();
+    }
+
+    for (int i = 0; i < 5; i++) {
+      if (vet[i] < menor) {
+        menor = vet[i];
+      }
+      if (vet[i] > maior) {
+        maior = vet[i];
+      }
+    }
+
+    System.out.println("\nMenor valor inserido: " + menor + "\nMaior valor inserido: " + maior);
+
+    scanner.close();
+  }
+}
