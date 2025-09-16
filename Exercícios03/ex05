@@ -1,0 +1,51 @@
+/*
+
+Exercício 5: Números primos em um intervalo
+
+Descrição:
+Escreva um programa que solicite dois números ao usuário e exiba todos os números primos no intervalo entre eles, utilizando um loop aninhado (for dentro de for).
+
+Requisitos:
+• O programa deve solicitar dois números inteiros positivos (início e fim do intervalo).
+• Deve utilizar um loop externo para percorrer os números dentro do
+intervalo.
+• Deve utilizar um loop interno para verificar se cada número é primo.
+• Exibir apenas os números primos encontrados.
+  
+*/
+
+import java.util.Scanner;
+
+public class Main {
+  public static void main(String[] args) {
+    Scanner scanner = new Scanner(System.in);
+
+    int n1, n2;
+
+    System.out.print("Insira o inicio e o fim do intervalo: ");
+    n1 = (scanner.nextInt());
+    n2 = (scanner.nextInt());
+
+    System.out.println("\nNumeros primos encontrados:");
+    for (int i = n1; i <= n2; i++) {
+      if (i < 2) {
+        continue;
+      }
+
+      boolean ehprimo = true;
+
+      for (int div = 2; div <= i / 2; div++) {
+        if (i % div == 0) {
+          ehprimo = false;
+          break;
+        }
+      }
+
+      if (ehprimo) {
+        System.out.println(i);
+      }
+    }
+
+    scanner.close();
+  }
+}
