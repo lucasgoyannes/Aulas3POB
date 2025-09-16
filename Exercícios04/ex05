@@ -1,0 +1,44 @@
+/*
+
+Exercício 5: Busca de Elemento em um Array
+
+Descrição:
+Implemente um programa que solicite ao usuário 10 números inteiros e os armazene em um array. Em seguida, o usuário deve digitar um número para buscar no array. 
+O programa deve informar se o número está presente e em qual posição.
+
+Requisitos:
+• Criar um array de tamanho 10.
+• Solicitar um número ao usuário e verificar se ele está presente no array.
+• Se o número for encontrado, exibir sua posição. Caso contrário, exibir "Número não encontrado.".
+  
+*/
+
+import java.util.Scanner;
+
+public class Main {
+  public static void main(String[] args) {
+    Scanner scanner = new Scanner(System.in);
+
+    int n;
+    int[] vet = new int[10];
+
+    System.out.print("Insira 10 numeros inteiros: ");
+    for (int i = 0; i < 10; i++) {
+      vet[i] = scanner.nextInt();
+    }
+
+    System.out.print("\nInsira um numero para ser buscado: ");
+    n = scanner.nextInt();
+    for (int i = 0; i < 10; i++) {
+      if (vet[i] == n) {
+        System.out.print("\nNumero encontrado! Posicao " + i);
+        scanner.close();
+        return;
+      }
+    }
+
+    System.out.print("\nNumero nao encontrado.");
+
+    scanner.close();
+  }
+}
