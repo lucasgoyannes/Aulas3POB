@@ -1,0 +1,44 @@
+/*
+
+Exercício 3: Soma de Números e Cálculo da Média
+
+Descrição:
+Crie um programa que solicite ao usuário inserir números em um ArrayList<Double> até que ele digite -1. 
+Depois, exiba a soma e a média dos números inseridos (excluindo o -1).
+
+Requisitos:
+• Criar um ArrayList<Double> para armazenar os números.
+• Utilizar um loop while para permitir inserções até o usuário digitar -1.
+• Utilizar um loop for para calcular a soma e a média dos números inseridos.
+  
+*/
+
+import java.util.Scanner;
+import java.util.ArrayList;
+
+public class Main {
+  public static void main(String[] args) {
+    Scanner scanner = new Scanner(System.in);
+    ArrayList<Double> numeros = new ArrayList<Double>();
+
+    double n, soma = 0.0, media;
+
+    System.out.println("Insira numeros para serem adicionados ao ArrayList (-1 para encerrar): \n\n");
+
+    n = scanner.nextDouble();
+    while (n != -1) {
+      numeros.add(n);
+      n = scanner.nextDouble();
+    }
+
+    for (int i = 0; i < numeros.size(); i++) {
+      soma += numeros.get(i);
+    }
+
+    media = soma / numeros.size();
+
+    System.out.println("\n\nArrayList: " + numeros + "\n\nSoma total: " + soma + "\n\nMedia: " + media);
+
+    scanner.close();
+  }
+}
