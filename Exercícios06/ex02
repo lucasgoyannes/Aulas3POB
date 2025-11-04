@@ -1,0 +1,120 @@
+/*
+
+Exercício 2: Cálculo de Salário com Bônus
+
+Descrição:
+Crie um programa que calcule o salário final de um funcionário, considerando um
+bônus de acordo com sua categoria.
+
+Requisitos:
+1. Criar o pacote dominio contendo a classe Funcionario:
+o Atributos: nome (String), salarioBase (double), categoria (String).
+o Método:
+▪ calcularSalarioFinal(): adiciona um bônus ao salário base:
+▪ "A" → +20%
+▪ "B" → +10%
+▪ "C" → sem bônus
+
+2. Criar o pacote controle contendo a classe GerenciadorFuncionario:
+o Permitir que o usuário cadastre um funcionário e consulte seu
+salário final.
+o Utilizar switch-case para aplicar a regra do bônus.
+*/
+
+import java.util.Scanner;
+
+public class Main {
+
+  // Classe Funcionario
+  static class Funcionario {
+    private String nome;
+    private double salarioBase;
+    private String categoria;
+
+    public Funcionario(String nome, double salarioBase, String categoria) {
+      this.nome = nome;
+      this.salarioBase = salarioBase;
+      this.categoria = categoria.toUpperCase();
+    }
+
+    public double calcularSalarioFinal() {
+      double salarioFinal = salarioBase;
+
+      switch (categoria) {
+        case "A":
+          salarioFinal += salarioBase * 0.20;
+          break;
+        case "B":
+          salarioFinal += salarioBase * 0.10;
+          break;
+        case "C":
+          break;
+        default:
+          System.out.println("Categoria invalida!");
+      }
+
+      return salarioFinal;
+    }
+
+    public void exibirDados() {
+      double salarioFinal = calcularSalarioFinal();
+      System.out.println("\n=== DADOS DO FUNCIONÁRIO ===");
+      System.out.println("Nome: " + nome);
+      System.out.println("Salario Base: R$ " + salarioBase);
+      System.out.println("Categoria: " + categoria);
+      System.out.println("Salario Final: R$ " + salarioFinal);
+    }
+  }
+
+  // Main
+  public static void main(String[] args) {
+    Scanner scanner = new Scanner(System.in);
+    Funcionario funcionario = null;
+    int opcao = 0;
+
+    System.out.println("=== Calculo de Salario com Bônus ===");
+
+    while (opcao != 3) {
+      System.out.println("\n=== MENU ===");
+      System.out.println("1 - Cadastrar funcionario");
+      System.out.println("2 - Consultar salario final");
+      System.out.println("3 - Sair");
+      System.out.print("\nEscolha uma opcao: ");
+
+      opcao = scanner.nextInt();
+      scanner.nextLine(); 
+
+      switch (opcao) {
+        case 1: 
+          System.out.print("Nome do funcionario: ");
+          String nome = scanner.nextLine();
+
+          System.out.print("Salario base: R$ ");
+          double salarioBase = scanner.nextDouble();
+
+          System.out.print("Categoria (A, B ou C): ");
+          String categoria = scanner.next();
+
+          funcionario = new Funcionario(nome, salarioBase, categoria);
+          System.out.println("Funcionario cadastrado com sucesso!");
+          break;
+
+        case 2:
+          if (funcionario != null) {
+            funcionario.exibirDados();
+          } else {
+            System.out.println("Cadastre um funcionario primeiro!");
+          }
+          break;
+
+        case 3:
+          System.out.println("Programa encerrado!");
+          break;
+
+        default:
+          System.out.println("Opcao invalida!");
+      }
+    }
+    scanner.close();
+  }
+}
