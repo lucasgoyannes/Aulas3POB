@@ -1,0 +1,92 @@
+/*
+
+Exercício 4: Validação de Nota de um Aluno
+
+Descrição:
+Crie um programa que leia uma nota de um aluno e verifique sua validade. Se for válida, classifique o aluno conforme sua média.
+
+Requisitos:
+1. Criar o pacote dominio contendo a classe Aluno:
+o Atributos: nome (String), nota (double).
+o Métodos:
+▪ validarNota(): verifica se a nota está entre 0 e 10.
+▪ classificarAluno(): classifica o aluno:
+▪ Nota >= 7 → "Aprovado"
+▪ Nota >= 5 e < 7 → "Recuperação"
+▪ Nota < 5 → "Reprovado"
+
+2. Criar o pacote controle contendo a classe GerenciadorAluno:
+o Solicitar o nome e a nota do aluno e verificar sua validade antes de exibir a classificação. 
+o Utilizar um while para garantir que o usuário informe uma nota válida.
+
+*/
+
+import java.util.Scanner;
+
+public class Main {
+
+  // Classe Aluno
+  static class Aluno {
+    private String nome;
+    private double nota;
+
+    public Aluno(String nome, double nota) {
+      this.nome = nome;
+      this.nota = nota;
+    }
+
+    public static boolean validarNota(double nota) {
+      if (nota >= 0 && nota <= 10) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+
+    public void classificarAluno() {
+      if (nota >= 7) {
+        System.out.println("APROVADO");
+      } else if (nota >= 5) {
+        System.out.println("RECUPERACAO");
+      } else {
+        System.out.println("REPROVADO");
+      }
+    }
+
+    public void exibirDados() {
+      System.out.println("\n=== DADOS DO ALUNO ===");
+      System.out.println("Nome: " + nome);
+      System.out.println("Nota: " + nota);
+
+      classificarAluno();
+    }
+  }
+
+  // Main
+  public static void main(String[] args) {
+    Scanner scanner = new Scanner(System.in);
+    boolean notaValida = false;
+    String nome;
+    double nota;
+
+    System.out.println("=== Validacao de Nota de um Aluno ===");
+
+    System.out.print("Insira o nome do aluno: ");
+    nome = scanner.nextLine();
+
+    while (!notaValida) {
+      System.out.print("Insira a nota do aluno (0-10): ");
+      nota = scanner.nextDouble();
+
+      if (Aluno.validarNota(nota)) {
+        notaValida = true;
+        Aluno aluno = new Aluno(nome, nota);
+        aluno.exibirDados();
+      } else {
+        System.out.println("Nota invalida!\n");
+      }
+    }
+
+    scanner.close();
+  }
+}
