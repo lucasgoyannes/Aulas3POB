@@ -1,0 +1,88 @@
+/*
+
+Exercício 5: Simulação de Um Caixa Eletrônico
+
+Descrição:
+Crie um programa que simule um caixa eletrônico, permitindo saques apenas em múltiplos de R$ 10 e garantindo que o saldo seja suficiente.
+
+Requisitos:
+1. Criar o pacote dominio contendo a classe CaixaEletronico:
+o Atributos: saldo (double).
+o Métodos:
+▪ sacar(double valor): verifica se o valor é múltiplo de 10 e se há saldo suficiente.
+▪ exibirSaldo(): exibe o saldo restante.
+
+2. Criar o pacote controle contendo a classe SimuladorCaixa:
+o Permitir que o usuário realize múltiplos saques, verificando a validade do valor.
+o Utilizar um while para continuar as operações até o usuário decidir sair.
+
+*/
+
+import java.util.Scanner;
+
+public class Main {
+
+  // Classe CaixaEletronico
+  static class CaixaEletronico {
+    private double saldo;
+
+    public CaixaEletronico(double saldo) {
+      this.saldo = saldo;
+    }
+
+    public void sacar(double valor) {
+      if (valor <= saldo && valor % 10 == 0) {
+        saldo = saldo - valor;
+
+        System.out.println("Voce sacou R$ " + valor);
+      } else {
+        System.out.println("Valor invalido!");
+      }
+    }
+
+    public void exibirSaldo() {
+      System.out.println("Saldo atual: R$ " + saldo);
+    }
+  }
+
+  // Main
+  public static void main(String[] args) {
+    Scanner scanner = new Scanner(System.in);
+    CaixaEletronico caixa = new CaixaEletronico(500.0);
+    int opcao = 0;
+
+    System.out.println("=== Simulacao de Um Caixa Eletronico ===");
+    System.out.println("Saldo inicial: R$ 500.00");
+
+    while (opcao != 3) {
+      System.out.println("\n=== MENU CAIXA ELETRÔNICO ===");
+      System.out.println("1 - Realizar saque");
+      System.out.println("2 - Consultar saldo");
+      System.out.println("3 - Sair");
+      System.out.print("\nEscolha uma opção: ");
+
+      opcao = scanner.nextInt();
+
+      switch (opcao) {
+        case 1:
+          System.out.print("Insira o valor que deseja sacar (multiplo de R$ 10): ");
+          double valorSaque = scanner.nextDouble();
+          caixa.sacar(valorSaque);
+          break;
+
+        case 2:
+          caixa.exibirSaldo();
+          break;
+
+        case 3:
+          System.out.println("Programa encerrado!");
+          break;
+
+        default:
+          System.out.println("Opcao invalida!");
+      }
+    }
+
+    scanner.close();
+  }
+}
